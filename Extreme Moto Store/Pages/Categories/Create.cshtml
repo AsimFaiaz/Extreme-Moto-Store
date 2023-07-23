@@ -1,0 +1,33 @@
+﻿@page
+@model Extreme_Moto_Store.Pages.Categories.CreateModel
+
+
+<form method="post">
+
+    <div class="border p-3 mt-4">
+
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">
+                Create Category
+            </h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary="All"></div>
+
+        <div class="mb-3">
+            <label asp-for="Category.name"></label>
+            <input asp-for="Category.name" class="form-control" />
+            <span asp-validation-for="Category.name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Category.displayOrder"></label>
+            <input asp-for="Category.displayOrder" class="form-control" />
+            <span asp-validation-for="Category.displayOrder" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+
+    </div>
+
+</form>
