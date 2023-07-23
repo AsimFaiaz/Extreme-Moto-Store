@@ -26,7 +26,7 @@ namespace Extreme_Moto_Store.Pages.Categories
         {
             if (Category.name == Category.displayOrder.ToString())
             {
-                ModelState.AddModelError(string.Empty, "Display Order and Name can't be same");
+                ModelState.AddModelError("Category.name", "Display Order and Name can't be same");
             }
 
             if(ModelState.IsValid) 
