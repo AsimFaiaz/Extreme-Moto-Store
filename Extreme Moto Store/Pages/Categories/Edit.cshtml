@@ -1,14 +1,15 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Categories.CreateModel
-
+@model Extreme_Moto_Store.Pages.Categories.EditModel
 
 <form method="post">
+
+    <input hidden asp-for="Category.id"/>           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
 
     <div class="border p-3 mt-4">
 
         <div class="row pb-2">
             <h2 class="text-primary pl-3">
-                Create Category
+                Edit Category
             </h2>
             <hr />
         </div>
@@ -28,13 +29,12 @@
 
         <div class="row justify-content-between">
             <div class="col-auto">
-                <button type="submit" class="btn btn-outline-primary" style="width:150px;">Create</button>
+                <button type="submit" class="btn btn-outline-success" style="width:150px;">Update</button>
             </div>
             <div class="col-auto">
                 <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
             </div>
         </div>
-        
 
     </div>
 
@@ -43,6 +43,7 @@
 @*Client Side Validation*@
 @section Scripts{
     @{
-    <partial name="_ValidationScriptsPartial"/>
+        <partial name="_ValidationScriptsPartial" />
     }
 }
+
