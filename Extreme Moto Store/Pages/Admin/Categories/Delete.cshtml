@@ -1,9 +1,9 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Categories.DeleteModel
+@model Extreme_Moto_Store.Pages.Admin.Categories.DeleteModel
 
 <form method="post">
 
-    <input hidden asp-for="Category.id" />           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
+    <input hidden asp-for="Category.Id" />           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
 
     <div class="border p-3 mt-4">
 
@@ -15,12 +15,12 @@
         </div>
 
         <div class="mb-3">
-            <label asp-for="Category.name"></label>
-            <input asp-for="Category.name" disabled class="form-control" />
+            <label asp-for="Category.Name"></label>
+            <input asp-for="Category.Name" disabled class="form-control" />
         </div>
         <div class="mb-3">
-            <label asp-for="Category.displayOrder"></label>
-            <input asp-for="Category.displayOrder" disabled class="form-control" />
+            <label asp-for="Category.DisplayOrder"></label>
+            <input asp-for="Category.DisplayOrder" disabled class="form-control" />
         </div>
 
         <div class="row justify-content-between">

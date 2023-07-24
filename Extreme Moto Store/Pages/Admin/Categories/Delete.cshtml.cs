@@ -1,9 +1,9 @@
-using Extreme_Moto_Store.Data;
-using Extreme_Moto_Store.Model;
+using Extreme_Moto_Store.DataAccess.Data;
+using Extreme_Moto_Store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Extreme_Moto_Store.Pages.Categories
+namespace Extreme_Moto_Store.Pages.Admin.Categories
 {
     public class DeleteModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace Extreme_Moto_Store.Pages.Categories
         public async Task<IActionResult> OnPost()
         {
             
-                var categoryFromDb = _db.Category.Find(Category.id);
+                var categoryFromDb = _db.Category.Find(Category.Id);
 
                 if(categoryFromDb != null) 
                 {

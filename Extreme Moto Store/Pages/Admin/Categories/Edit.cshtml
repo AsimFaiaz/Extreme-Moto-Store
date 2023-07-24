@@ -1,0 +1,49 @@
+﻿@page
+@model Extreme_Moto_Store.Pages.Admin.Categories.EditModel
+
+<form method="post">
+
+    <input hidden asp-for="Category.Id"/>           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
+
+    <div class="border p-3 mt-4">
+
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">
+                Edit Category
+            </h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary="All"></div>
+
+        <div class="mb-3">
+            <label asp-for="Category.Name"></label>
+            <input asp-for="Category.Name" class="form-control" />
+            <span asp-validation-for="Category.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Category.DisplayOrder"></label>
+            <input asp-for="Category.DisplayOrder" class="form-control" />
+            <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-success" style="width:150px;">Update</button>
+            </div>
+            <div class="col-auto">
+                <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@*Client Side Validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

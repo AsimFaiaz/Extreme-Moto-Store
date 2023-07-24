@@ -1,9 +1,9 @@
-using Extreme_Moto_Store.Data;
-using Extreme_Moto_Store.Model;
+using Extreme_Moto_Store.DataAccess.Data;
+using Extreme_Moto_Store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Extreme_Moto_Store.Pages.Categories
+namespace Extreme_Moto_Store.Pages.Admin.ItemTypes
 {
     public class CreateModel : PageModel
     {
@@ -11,7 +11,7 @@ namespace Extreme_Moto_Store.Pages.Categories
         private readonly ApplicationDbContext _db;
         [BindProperty]
 
-        public Category Category { get; set; }
+        public ItemType ItemType { get; set; }
 
         public CreateModel(ApplicationDbContext db)
         {
@@ -24,14 +24,9 @@ namespace Extreme_Moto_Store.Pages.Categories
         }
         public async Task<IActionResult> OnPost()
         {
-            if (Category.name == Category.displayOrder.ToString())
-            {
-                ModelState.AddModelError("Category.name", "Display Order and Name can't be same");
-            }
-
             if(ModelState.IsValid) 
             {
-                await _db.Category.AddAsync(Category);
+                await _db.ItemType.AddAsync(ItemType);
                 await _db.SaveChangesAsync();
                 TempData["success"] = "";
                 return RedirectToPage("Index");

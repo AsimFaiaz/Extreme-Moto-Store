@@ -1,4 +1,4 @@
-using Extreme_Moto_Store.Data;
+using Extreme_Moto_Store.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

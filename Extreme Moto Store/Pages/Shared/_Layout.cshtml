@@ -30,8 +30,19 @@
                             <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Categories/Index">Catagories</a>
+         
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/Categories/Index">Catagories</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/ItemTypes/Index">Item Type</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -44,7 +55,7 @@
         </main>
     </div>
 
-    <footer class="footer text-muted">
+    <footer class="footer text-muted bg-dark">
         <div class="fixed-bottom">
             <div class="container">       
             &copy; 2023 - Extreme Moto Store

@@ -1,0 +1,35 @@
+﻿@page
+@model Extreme_Moto_Store.Pages.Admin.ItemTypes.DeleteModel
+
+<form method="post">
+
+    <input hidden asp-for="ItemType.Id" />           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
+
+    <div class="border p-3 mt-4">
+
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">
+                Delete Category
+            </h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ItemType.Name"></label>
+            <input asp-for="ItemType.Name" disabled class="form-control" />
+        </div>
+
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-danger" style="width:150px;">Delete</button>
+            </div>
+            <div class="col-auto">
+                <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</form>
+

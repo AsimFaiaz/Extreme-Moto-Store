@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <RootNamespace>Extreme_Moto_Store.DataAccess</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Extreme_Moto_Store</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,11 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Extreme Moto Store.DataAccess\Extreme Moto Store.DataAccess.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Customer\" />
+    <ProjectReference Include="..\Extreme Moto Store.Models\Extreme Moto Store.Models.csproj" />
   </ItemGroup>
 
 </Project>

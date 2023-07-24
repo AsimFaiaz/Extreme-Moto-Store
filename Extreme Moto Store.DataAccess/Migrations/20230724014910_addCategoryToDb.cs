@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Extreme_Moto_Store.Migrations
+namespace Extreme_Moto_Store.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class addCategoryToDb : Migration
@@ -14,14 +14,14 @@ namespace Extreme_Moto_Store.Migrations
                 name: "Category",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    displayOrder = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DisplayOrder = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
         }
 

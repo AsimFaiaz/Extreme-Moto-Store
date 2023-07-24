@@ -1,0 +1,44 @@
+﻿@page
+@model Extreme_Moto_Store.Pages.Admin.ItemTypes.CreateModel
+
+
+<form method="post">
+
+    <div class="border p-3 mt-4">
+
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">
+                Create Category
+            </h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary="All"></div>
+
+        <div class="mb-3">
+            <label asp-for="ItemType.Name"></label>
+            <input asp-for="ItemType.Name" class="form-control" />
+            <span asp-validation-for="ItemType.Name" class="text-danger"></span>
+        </div>
+
+
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-outline-primary" style="width:150px;">Create</button>
+            </div>
+            <div class="col-auto">
+                <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
+            </div>
+        </div>
+        
+
+    </div>
+
+</form>
+
+@*Client Side Validation*@
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+}

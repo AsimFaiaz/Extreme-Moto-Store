@@ -1,7 +1,7 @@
-﻿using Extreme_Moto_Store.Model;
+﻿using Extreme_Moto_Store.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Extreme_Moto_Store.Data
+namespace Extreme_Moto_Store.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -13,5 +13,6 @@ namespace Extreme_Moto_Store.Data
         }
 
         public DbSet<Category> Category { get; set; }
+        public DbSet<ItemType> ItemType { get; set; }  
     }
 }

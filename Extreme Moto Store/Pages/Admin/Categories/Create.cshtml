@@ -1,5 +1,5 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Categories.CreateModel
+@model Extreme_Moto_Store.Pages.Admin.Categories.CreateModel
 
 
 <form method="post">
@@ -16,14 +16,14 @@
         <div asp-validation-summary="All"></div>
 
         <div class="mb-3">
-            <label asp-for="Category.name"></label>
-            <input asp-for="Category.name" class="form-control" />
-            <span asp-validation-for="Category.name" class="text-danger"></span>
+            <label asp-for="Category.Name"></label>
+            <input asp-for="Category.Name" class="form-control" />
+            <span asp-validation-for="Category.Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Category.displayOrder"></label>
-            <input asp-for="Category.displayOrder" class="form-control" />
-            <span asp-validation-for="Category.displayOrder" class="text-danger"></span>
+            <label asp-for="Category.DisplayOrder"></label>
+            <input asp-for="Category.DisplayOrder" class="form-control" />
+            <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
         </div>
 
         <div class="row justify-content-between">

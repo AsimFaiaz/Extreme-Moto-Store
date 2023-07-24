@@ -1,5 +1,5 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Categories.IndexModel
+@model Extreme_Moto_Store.Pages.Admin.ItemTypes.IndexModel
 
 @*Created a folder by the name of _Noti.. and moved all the tostr JS codes to that page. So, we can change at one spot only and all the notification related codes will be there*@
 @*Option 1: Pertial view only works for index page if I just leave here. Instead I will move to renderbody at _Layout page so all the pages will be the part of it*@
@@ -24,26 +24,23 @@
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr style="text-align: center; ">
-                <th style="text-transform: none">Category Name</th>
-                <th style="text-transform: none">Display Order</th>
+                <th style="text-transform: none">Item Type Name</th>
                 <th></th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach(var obj in Model.Categories)
+            @foreach(var obj in Model.ItemTypes)
             {
                 <tr style="text-align: center">
-                    <td width="50%">@obj.name</td>
-                    <td width="30%">@obj.displayOrder</td>
+                    <td width="50%">@obj.Name</td>
 
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-page="Edit" asp-route-id="@obj.id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i></a>
-                            <a asp-page="Delete" asp-route-id="@obj.id" class="btn btn-danger mx-2"><i class="bi bi-trash3"></i></a>
+                            <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-success mx-2"><i class="bi bi-pencil-square"></i></a>
+                            <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2"><i class="bi bi-trash3"></i></a>
                         </div>
                     </td>
-
                 </tr>
             }
         </tbody>

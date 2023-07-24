@@ -1,9 +1,9 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Categories.EditModel
+@model Extreme_Moto_Store.Pages.Admin.ItemTypes.EditModel
 
 <form method="post">
 
-    <input hidden asp-for="Category.id"/>           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
+    <input hidden asp-for="ItemType.Id"/>           @*Imp: With the hidden field it will have the id and edit otherwise the ID will be 0 and when try to update it will create instead*@
 
     <div class="border p-3 mt-4">
 
@@ -17,14 +17,9 @@
         <div asp-validation-summary="All"></div>
 
         <div class="mb-3">
-            <label asp-for="Category.name"></label>
-            <input asp-for="Category.name" class="form-control" />
-            <span asp-validation-for="Category.name" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Category.displayOrder"></label>
-            <input asp-for="Category.displayOrder" class="form-control" />
-            <span asp-validation-for="Category.displayOrder" class="text-danger"></span>
+            <label asp-for="ItemType.Name"></label>
+            <input asp-for="ItemType.Name" class="form-control" />
+            <span asp-validation-for="ItemType.Name" class="text-danger"></span>
         </div>
 
         <div class="row justify-content-between">

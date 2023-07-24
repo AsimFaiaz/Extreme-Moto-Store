@@ -1,9 +1,9 @@
-using Extreme_Moto_Store.Data;
-using Extreme_Moto_Store.Model;
+using Extreme_Moto_Store.DataAccess.Data;
+using Extreme_Moto_Store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Extreme_Moto_Store.Pages.Categories
+namespace Extreme_Moto_Store.Pages.Admin.Categories
 {
     public class IndexModel : PageModel
     {
