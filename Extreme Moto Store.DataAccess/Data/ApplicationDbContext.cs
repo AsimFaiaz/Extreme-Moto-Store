@@ -13,6 +13,7 @@ namespace Extreme_Moto_Store.DataAccess.Data
         }
 
         public DbSet<Category> Category { get; set; }
-        public DbSet<ItemType> ItemType { get; set; }  
+        public DbSet<ItemType> ItemType { get; set; }
+        public DbSet<Product> Product { get; set; }
     }
 }
