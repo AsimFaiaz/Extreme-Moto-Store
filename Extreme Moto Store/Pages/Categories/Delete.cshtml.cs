@@ -31,7 +31,8 @@ namespace Extreme_Moto_Store.Pages.Categories
                 {
                     _db.Category.Remove(categoryFromDb);
                     await _db.SaveChangesAsync();
-                    return RedirectToPage("Index");
+                TempData["error"] = "";
+                return RedirectToPage("Index");
                  }
 
             return Page();

@@ -33,6 +33,7 @@ namespace Extreme_Moto_Store.Pages.Categories
             {
                 _db.Category.Update(Category);
                 await _db.SaveChangesAsync();
+                TempData["warning"] = "";
                 return RedirectToPage("Index");
             }
 
