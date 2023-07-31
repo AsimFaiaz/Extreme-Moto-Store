@@ -1,21 +1,22 @@
 using Extreme_Moto_Store.DataAccess.Data;
+using Extreme_Moto_Store.DataAccess.Repository.iRepository;
 using Extreme_Moto_Store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Extreme_Moto_Store.Pages.Admin.Categories
 {
+    [BindProperties]   //Important, Null exp will be given if missing
     public class CreateModel : PageModel
     {
 
-        private readonly ApplicationDbContext _db;
-        [BindProperty]
+        private readonly IUnitOfWork _unitOfWork;
 
         public Category Category { get; set; }
 
-        public CreateModel(ApplicationDbContext db)
+        public CreateModel(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -31,8 +32,8 @@ namespace Extreme_Moto_Store.Pages.Admin.Categories
 
             if(ModelState.IsValid) 
             {
-                await _db.Category.AddAsync(Category);
-                await _db.SaveChangesAsync();
+                _unitOfWork.Category.Add(Category);
+                _unitOfWork.Save();
                 TempData["success"] = "";
                 return RedirectToPage("Index");
             }
