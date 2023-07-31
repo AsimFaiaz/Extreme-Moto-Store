@@ -1,23 +1,22 @@
 using Extreme_Moto_Store.DataAccess.Data;
+using Extreme_Moto_Store.DataAccess.Repository.iRepository;
 using Extreme_Moto_Store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Extreme_Moto_Store.Pages.Admin.ItemTypes
 {
+    [BindProperties]   //Important, Null exp will be given if missing
     public class CreateModel : PageModel
     {
-
-        private readonly ApplicationDbContext _db;
-        [BindProperty]
+        private readonly IUnitOfWork _unitOfWork;
 
         public ItemType ItemType { get; set; }
 
-        public CreateModel(ApplicationDbContext db)
+        public CreateModel(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
-
 
         public void OnGet()
         {
@@ -26,12 +25,11 @@ namespace Extreme_Moto_Store.Pages.Admin.ItemTypes
         {
             if(ModelState.IsValid) 
             {
-                await _db.ItemType.AddAsync(ItemType);
-                await _db.SaveChangesAsync();
+                _unitOfWork.ItemType.Add(ItemType);
+                _unitOfWork.Save();
                 TempData["success"] = "";
                 return RedirectToPage("Index");
             }
-
             return Page();
        
         }

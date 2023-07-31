@@ -1,5 +1,6 @@
 ﻿using Extreme_Moto_Store.DataAccess.Data;
 using Extreme_Moto_Store.DataAccess.Repository.iRepository;
+using Extreme_Moto_Store.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,11 @@ namespace Extreme_Moto_Store.DataAccess.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            ItemType = new ItemTypeRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
+        public IItemTypeRepository ItemType { get; private set; }
 
         public void Dispose()
         {

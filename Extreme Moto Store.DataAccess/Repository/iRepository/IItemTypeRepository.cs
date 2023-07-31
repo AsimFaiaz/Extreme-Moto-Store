@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Extreme_Moto_Store.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Extreme_Moto_Store.DataAccess.Repository.iRepository
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IItemTypeRepository : IRepository<ItemType>
     {
-        ICategoryRepository Category { get; }
-        IItemTypeRepository ItemType { get; }
-        void Save();
+        void Update(ItemType itemType);
+
     }
 }
