@@ -10,6 +10,7 @@ namespace Extreme_Moto_Store.DataAccess.Repository.iRepository
     {
         ICategoryRepository Category { get; }
         IItemTypeRepository ItemType { get; }
+        IProductRepository Product { get; }
         void Save();
     }
 }

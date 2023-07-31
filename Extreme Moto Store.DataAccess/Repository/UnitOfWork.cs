@@ -18,10 +18,12 @@ namespace Extreme_Moto_Store.DataAccess.Repository
             _db = db;
             Category = new CategoryRepository(_db);
             ItemType = new ItemTypeRepository(_db);
+            Product = new ProductRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
         public IItemTypeRepository ItemType { get; private set; }
+        public IProductRepository Product { get; private set; }
 
         public void Dispose()
         {
