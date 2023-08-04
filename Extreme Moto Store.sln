@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extreme Moto Store", "Extreme Moto Store\Extreme Moto Store.csproj", "{143998CB-12BA-4AEF-B20D-69EEBC95D819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extreme Moto Store.DataAccess", "Extreme Moto Store.DataAccess\Extreme Moto Store.DataAccess.csproj", "{B8FE41EF-8794-483D-B3F0-28F41A746149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extreme Moto Store.DataAccess", "Extreme Moto Store.DataAccess\Extreme Moto Store.DataAccess.csproj", "{B8FE41EF-8794-483D-B3F0-28F41A746149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extreme Moto Store.Models", "Extreme Moto Store.Models\Extreme Moto Store.Models.csproj", "{4416FE9D-77A7-494D-8716-3706E52E0EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extreme Moto Store.Models", "Extreme Moto Store.Models\Extreme Moto Store.Models.csproj", "{4416FE9D-77A7-494D-8716-3706E52E0EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extreme Moto Store.Utility", "Extreme Moto Store.Utility\Extreme Moto Store.Utility.csproj", "{1D3629D3-1972-40FD-AE65-09E9EDE3CFAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extreme Moto Store.Utility", "Extreme Moto Store.Utility\Extreme Moto Store.Utility.csproj", "{1D3629D3-1972-40FD-AE65-09E9EDE3CFAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

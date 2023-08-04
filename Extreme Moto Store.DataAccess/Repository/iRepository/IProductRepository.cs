@@ -9,7 +9,7 @@ namespace Extreme_Moto_Store.DataAccess.Repository.iRepository
 {
     public interface IProductRepository : IRepository<Product>
     {
-        void Update(Product product);
+        void Update(Product obj);
 
     }
 }

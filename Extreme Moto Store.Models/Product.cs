@@ -21,9 +21,11 @@ namespace Extreme_Moto_Store.Models
         [Range(1,3000,ErrorMessage ="Price must be within $1 to $3000")]
         public double Price { get; set; }
 
+        [Display(Name="Item Type")]
         public int ItemTypeId { get; set; }
         public ItemType ItemType { get; set; }
 
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 

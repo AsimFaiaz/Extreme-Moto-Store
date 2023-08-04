@@ -1,5 +1,5 @@
 ﻿@page
-@model Extreme_Moto_Store.Pages.Admin.ItemTypes.IndexModel
+@model Extreme_Moto_Store.Pages.Admin.Products.IndexModel
 
 @*Created a folder by the name of _Noti.. and moved all the tostr JS codes to that page. So, we can change at one spot only and all the notification related codes will be there*@
 @*Option 1: Pertial view only works for index page if I just leave here. Instead I will move to renderbody at _Layout page so all the pages will be the part of it*@
@@ -8,12 +8,12 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Item Type List</h2>
+            <h2 class="text-primary">Products List</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-page="create" class="btn btn-primary">
+            <a asp-page="upsert" class="btn btn-primary">
                 <i class="bi bi-plus-square-dotted"></i>
-                Create Item Type
+                Create New Product
             </a>
         </div>
     </div>
@@ -21,19 +21,31 @@
     <br />
     <br />
 
-    <table class="table table-bordered table-striped" style="width:100%">
+
+    <table id="DT_load" class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr style="text-align: center; ">
-                <th style="text-transform: none">Item Type Name</th>
-                <th style="text-transform: none">Action</th>
+                <th style="text-transform: none">Name</th>
+                <th style="text-transform: none">Price</th>
+                <th style="text-transform: none">Category</th>
+                <th style="text-transform: none">Item Type</th>
+                <th style="text-transform: none">Action</th>   @*This tag is important otherwise data-table will show error*@
             </tr>
         </thead>
 
-        <tbody>
-            @foreach(var obj in Model.ItemTypes)
+ @*-----------------------------------------------------------------------------------------------------*@
+
+
+ @*For testing to see if Database or Data-table causing issues to fetch data*@
+
+
+
+        @*<tbody>
+            @foreach (var obj in Model.Products)
             {
                 <tr style="text-align: center">
                     <td width="50%">@obj.Name</td>
+                    <td width="50%">@obj.Price</td>
 
                     <td>
                         <div class="w-75 btn-group" role="group">
@@ -44,6 +56,13 @@
                 </tr>
             }
         </tbody>
+*@
+@*------------------------------------------------------------------------------------------------------*@
     </table>
 
 </div>
+
+@*Data Table source from product.js*@
+@section Scripts{
+   <script src="~/js/product.js"></script>
+}

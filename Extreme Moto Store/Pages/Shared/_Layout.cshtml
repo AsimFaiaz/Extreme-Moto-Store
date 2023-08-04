@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/Extreme_Moto_Store.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
 </head>
 
 <body>
@@ -38,7 +39,9 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-area="" asp-page="/Admin/Categories/Index">Catagories</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-area="" asp-page="/Admin/ItemTypes/Index">Item Type</a>
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/ItemTypes/Index">Item Types</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/Products/Index">Products</a>
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>
@@ -69,6 +72,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://cdn.tiny.cloud/1/bjaavegfh1h3uw533nhfhp36i7bqeg2hbyc5lvdcodb6dfik/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

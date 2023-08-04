@@ -20,20 +20,20 @@ namespace Extreme_Moto_Store.DataAccess.Repository
             _db = db;
         }
 
-        public void Update(Product product)
+        public void Update(Product obj)
         {
             //Another way of updating using EFcore
-            var objFromDb = _db.Product.FirstOrDefault(u=>u.Id == product.Id); //Retrieve category object from database
-            objFromDb.Name = product.Name;
-            objFromDb.Description = product.Description;
-            objFromDb.Price = product.Price;
-            objFromDb.CategoryId = product.CategoryId;
-            objFromDb.ItemTypeId = product.ItemTypeId;
+            var objFromDb = _db.Product.FirstOrDefault(u=>u.Id == obj.Id); //Retrieve category object from database
+            objFromDb.Name = obj.Name;
+            objFromDb.Description = obj.Description;
+            objFromDb.Price = obj.Price;
+            objFromDb.CategoryId = obj.CategoryId;
+            objFromDb.ItemTypeId = obj.ItemTypeId;
 
             //Image property
             if(objFromDb.Image != null) 
             {
-                objFromDb.Image = product.Image;
+                objFromDb.Image = obj.Image;
             }
 
         }
