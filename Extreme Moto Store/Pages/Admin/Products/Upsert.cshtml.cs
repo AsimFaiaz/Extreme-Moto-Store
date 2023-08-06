@@ -27,8 +27,15 @@ namespace Extreme_Moto_Store.Pages.Admin.Products
             Product = new();
         }
 
-        public void OnGet()
+        public void OnGet(int? id)
         {
+            if (id != null)
+            {
+                //Edit button functionality
+                Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+            }
+            
+
             CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem()
             {
                 Text = i.Name,
@@ -65,7 +72,39 @@ namespace Extreme_Moto_Store.Pages.Admin.Products
             }
             else
             {
-                
+                //Edit
+                var objFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == Product.Id);
+                if (files.Count>0)
+                    {
+                    string fileName_new = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(webRootPath, @"images\products");
+                    var extension = Path.GetExtension(files[0].FileName);
+
+
+                    //Delete old image
+                    var objImagePath = Path.Combine(webRootPath, objFromDb.Image.TrimStart('\\'));
+                    if(System.IO.File.Exists(objImagePath)) 
+                    {
+                        System.IO.File.Delete(objImagePath);
+                    }
+
+                    //New upload
+                    using (var fileStream = new FileStream(Path.Combine(uploads, fileName_new + extension), FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+
+                    Product.Image = @"\images\products\" + fileName_new + extension;
+                }
+                else
+                {
+                    //Safe Side, Using Validation also
+                    Product.Image = objFromDb.Image;
+                }
+
+                _unitOfWork.Product.Update(Product);
+                _unitOfWork.Save();
+
             }
             return RedirectToPage("./Index");
         }
