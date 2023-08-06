@@ -64,10 +64,23 @@
             </div>
         </div>
 
+
         <div class="row justify-content-between">
-            <div class="col-auto">
-                <button type="submit" class="btn btn-outline-primary" style="width:150px;"> @(Model.Product.Id != 0 ? "Update" : "Create")</button>
-            </div>
+
+            @*If image not uploading while creating a product*@
+            @if (Model.Product.Id != 0)
+            {
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-primary" style="width:150px;">Update</button>
+                </div>
+            }
+            else
+            {
+                <div class="col-auto">
+                    <button type="submit" onclick="return Validate()" class="btn btn-outline-primary" style="width:150px;">Update</button>
+                </div>
+            }
+
             <div class="col-auto">
                 <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
             </div>
@@ -88,6 +101,20 @@
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
+
+        function Validate()
+        {
+            if(document.getElementById("uploadBox").value==""){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Upload an image please',
+                })
+                return false;
+            }
+            return true;
+        }
+
     </script>
 
     @{
