@@ -34,11 +34,17 @@ namespace Extreme_Moto_Store.DataAccess.Repository
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> GetAll(string? includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderby = null, string ? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
 
-            if(includeProperties != null)
+
+			if (filter != null)
+			{
+				query = query.Where(filter);
+			}
+
+			if (includeProperties != null)
             {
                 foreach(var includeProperty in includeProperties.Split(
                     new char[] {','},StringSplitOptions.RemoveEmptyEntries))
@@ -47,10 +53,15 @@ namespace Extreme_Moto_Store.DataAccess.Repository
                 }
             }
 
+            if(orderby != null)
+            {
+                return orderby(query).ToList();
+            }
+
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null)
+        public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
 
@@ -59,7 +70,16 @@ namespace Extreme_Moto_Store.DataAccess.Repository
                 query = query.Where(filter);
             }
 
-            return query.FirstOrDefault();
+			if (includeProperties != null)
+			{
+				foreach (var includeProperty in includeProperties.Split(
+					new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+				{
+					query = query.Include(includeProperty);
+				}
+			}
+
+			return query.FirstOrDefault();
         }
 
         public void Remove(T entity)

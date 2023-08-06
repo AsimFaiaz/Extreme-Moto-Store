@@ -15,8 +15,8 @@ namespace Extreme_Moto_Store.DataAccess.Repository.iRepository
 
         void RemoveRange(IEnumerable<T> entity);
 
-        IEnumerable<T> GetAll(string? includeProperties = null);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderby = null, string? includeProperties = null);
 
-        T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null);
+        T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null);
     }
 }
