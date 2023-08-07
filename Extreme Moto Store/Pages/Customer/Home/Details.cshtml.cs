@@ -17,7 +17,7 @@ namespace Extreme_Moto_Store.Pages.Customer.Home
 
 		public Product Product { get; set; }
 
-		[Range(1, 5, ErrorMessage = "Please select minimum 1 or maximum 5 to add to cart")]  //For count functionality on View details page
+	
 		public int count { get; set; }
 		public void OnGet(int id)
 		{

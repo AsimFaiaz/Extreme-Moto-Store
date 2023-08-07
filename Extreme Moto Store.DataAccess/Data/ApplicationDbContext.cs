@@ -17,5 +17,6 @@ namespace Extreme_Moto_Store.DataAccess.Data
         public DbSet<ItemType> ItemType { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     }
 }
