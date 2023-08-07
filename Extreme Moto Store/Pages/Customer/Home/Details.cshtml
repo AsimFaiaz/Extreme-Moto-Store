@@ -8,10 +8,10 @@
                 <div class="card-header">
                     <div class="text-light ml-0 row ">
                         <div class="col-12 col-md-6 pt-2">
-                            <h1 class="text-primary">@Model.Product.Name</h1>
+                            <h1 class="text-primary">@Model.ShoppingCart.Product.Name</h1>
                         </div>
                         <div class="col-12 col-md-6 text-end pt-2">
-                            <h1 class="text-muted">$@Model.Product.Price</h1>
+                            <h1 class="text-muted">$@Model.ShoppingCart.Product.Price</h1>
                         </div>
                     </div>
                 </div>
@@ -22,16 +22,16 @@
                                 <div class="row">
 
                                     <div class="col-12">
-                                        <span class="badge bg-warning p-3 h3">@Model.Product.Category.Name</span>
-                                        <span class="badge bg-dark p-3">@Model.Product.ItemType.Name</span>
+                                        <span class="badge bg-warning p-3 h3">@Model.ShoppingCart.Product.Category.Name</span>
+                                        <span class="badge bg-dark p-3">@Model.ShoppingCart.Product.ItemType.Name</span>
                                         <h3 class="text-success"></h3>
 
-                                        <p class="text-secondary">@Html.Raw(Model.Product.Description)</p>
+                                        <p class="text-secondary">@Html.Raw(Model.ShoppingCart.Product.Description)</p>
 
                                         <div class="form-floating my-2">
-                                            <input asp-for="count" class="form-control" aria-required="true" />
-                                            <label asp-for="count">Count</label>
-                                            <span asp-validation-for="count" class="text-danger"></span>
+                                            <input asp-for="@Model.ShoppingCart.Count" class="form-control" aria-required="true" />
+                                            <label asp-for="@Model.ShoppingCart.Count">Count</label>
+                                            <span asp-validation-for="@Model.ShoppingCart.Count" class="text-danger"></span>
                                         </div>
 
                                     </div>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="@Model.Product.Image" width="100%" class="rounded" />
+                                <img src="@Model.ShoppingCart.Product.Image" width="100%" class="rounded" />
                             </div>
 
 
@@ -49,12 +49,14 @@
 
                 <div class="card-footer">
                 <div class="row justify-content-between">
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-outline-primary" style="width:150px;">Add to Cart</button>
-                    </div>
+                    
                     <div class="col-auto">
                         <a asp-page="Index" class="btn btn-outline-warning" style="width:150px;">Go Back</a>
                     </div>
+
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-primary" style="width:150px;">Add to Cart</button>
+                        </div>
                 </div>
                 </div>
 

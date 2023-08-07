@@ -1,11 +1,13 @@
 using Extreme_Moto_Store.DataAccess.Repository.iRepository;
 using Extreme_Moto_Store.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
 namespace Extreme_Moto_Store.Pages.Customer.Home
 {
+	[Authorize]
     public class DetailsModel : PageModel
     {
 		private readonly IUnitOfWork _iUnitOfWork;
@@ -15,13 +17,16 @@ namespace Extreme_Moto_Store.Pages.Customer.Home
 			_iUnitOfWork = unitOfWork;
 		}
 
-		public Product Product { get; set; }
+		[BindProperty]
+		public ShoppingCart ShoppingCart { get; set; }
 
-	
-		public int count { get; set; }
 		public void OnGet(int id)
 		{
-			Product = _iUnitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,ItemType"); //Load the product 
+			ShoppingCart = new()
+			{
+				Product = _iUnitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,ItemType") //Load the product 
+			};
+			
 		}
 	}
 }
