@@ -1,6 +1,9 @@
 using Extreme_Moto_Store.DataAccess.Data;
 using Extreme_Moto_Store.DataAccess.Repository;
 using Extreme_Moto_Store.DataAccess.Repository.iRepository;
+using Extreme_Moto_Store.Utility;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders(); //Modified to get access the Role Manager
+
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
@@ -27,6 +33,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

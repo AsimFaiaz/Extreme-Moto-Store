@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Extreme Moto Store.DataAccess\Extreme Moto Store.DataAccess.csproj" />
+    <ProjectReference Include="..\Extreme Moto Store.Utility\Extreme Moto Store.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
