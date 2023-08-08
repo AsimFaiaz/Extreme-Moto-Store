@@ -8,10 +8,21 @@
 
     @*If the cart is empty*@
     @if(@Model.ShoppingCartList.Count() == 0)
-    {
-        <div>
-            Please add item to the cart
+    {     
+      <div>
+        <div class="card">
+            <div class="card-header bg-dark text-light ml-0 ">
+                <div class="row">
+                    <div class="col-6 pt-2">
+                        Your cart is empty
+                    </div>
+                        <div class="col-6 text-end">
+                            <a href="./Home/Index" class="btn btn-outline-info btn-sm">Back to Home</a>
+                        </div>
+                </div>
+            </div>
         </div>
+      </div>
     }
     else{
 
@@ -52,11 +63,11 @@
                             </div>
 
                             <div class="col-6 col-sm-4 col-lg-6">
-                                <button type="submit" class="btn btn-primary" asp-page-handler="plus" asp-route-cartID="@item.Id">
+                                    <button type="submit" class="btn btn-outline-primary" asp-page-handler="plus" asp-route-cartID="@item.Id">
                                     <i class="bi bi-plus-square"></i>
                                 </button>
 
-                                <button type="submit" class="btn btn-danger" asp-page-handler="minus" asp-route-cartID="@item.Id">
+                                    <button type="submit" class="btn btn-outline-warning" asp-page-handler="minus" asp-route-cartID="@item.Id">
                                     <i class="bi bi-dash-square"></i>
                                 </button>
                             </div>
@@ -91,7 +102,7 @@
             </div>
             <div class="card-footer">
                 <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
-                    <a asp-page="Summary" class="btn btn-success form-control">Summary</a>
+                        <a asp-page="Summary" class="btn btn-outline-success form-control">Summary</a>
                 </div>
             </div>
         </div>
