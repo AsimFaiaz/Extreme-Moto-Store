@@ -4,17 +4,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace Extreme_Moto_Store.Pages.Customer.Home
 {
 	[Authorize]
     public class DetailsModel : PageModel
     {
-		private readonly IUnitOfWork _iUnitOfWork;
+		private readonly IUnitOfWork _unitOfWork;
 
 		public DetailsModel(IUnitOfWork unitOfWork)
 		{
-			_iUnitOfWork = unitOfWork;
+			_unitOfWork = unitOfWork;
 		}
 
 		[BindProperty]
@@ -22,11 +23,41 @@ namespace Extreme_Moto_Store.Pages.Customer.Home
 
 		public void OnGet(int id)
 		{
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+
 			ShoppingCart = new()
 			{
-				Product = _iUnitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,ItemType") //Load the product 
+				ApplicationUserId = claim.Value,
+				Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,ItemType"), //Load the product 
+				ProductId = id
 			};
 			
 		}
-	}
+
+        public IActionResult OnPost()
+        {
+			if(ModelState.IsValid)
+			{
+				//Chking validitity for the same product and the same user
+				ShoppingCart shoppingCartFromDb = _unitOfWork.ShoppingCart.GetFirstOrDefault(
+					filter: u=>u.ApplicationUserId == ShoppingCart.ApplicationUserId && u.ProductId == ShoppingCart.ProductId);
+				 
+				if(shoppingCartFromDb == null) 
+				{
+					_unitOfWork.ShoppingCart.Add(ShoppingCart);
+					_unitOfWork.Save();
+				}
+				else
+				{
+					_unitOfWork.ShoppingCart.IncrementCount(shoppingCartFromDb, ShoppingCart.Count);
+				}
+
+                return RedirectToPage("Index");
+            }
+
+			return Page();
+        }
+    }
 }

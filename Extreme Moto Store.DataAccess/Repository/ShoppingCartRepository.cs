@@ -19,5 +19,21 @@ namespace Extreme_Moto_Store.DataAccess.Repository
         {
             _db = db;
         }
+
+        //Without these block, the program will only create a new record if come one wants to incre or decre later but now it will edit the count only and update
+
+        public int DecrementCount(ShoppingCart shoppingCart, int count)
+        {
+            shoppingCart.Count -= count;
+            _db.SaveChanges();
+            return shoppingCart.Count;
+        }
+
+        public int IncrementCount(ShoppingCart shoppingCart, int count)
+        {
+            shoppingCart.Count += count;
+            _db.SaveChanges();
+            return shoppingCart.Count;
+        }
     }
 }
