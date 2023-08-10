@@ -12,6 +12,8 @@ namespace Extreme_Moto_Store.DataAccess.Repository.iRepository
         IItemTypeRepository ItemType { get; }
         IProductRepository Product { get; }
         IShoppingCartRepository ShoppingCart { get; }
+        IOrderDetailRepository OrderDetails { get; }
+        IOrderHeaderRepository OrderHeader { get; }
         void Save();
     }
 }

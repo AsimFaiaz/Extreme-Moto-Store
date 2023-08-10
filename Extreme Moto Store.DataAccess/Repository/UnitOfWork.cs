@@ -20,12 +20,16 @@ namespace Extreme_Moto_Store.DataAccess.Repository
             ItemType = new ItemTypeRepository(_db);
             Product = new ProductRepository(_db);
             ShoppingCart = new ShoppingCartRepository(_db);
+            OrderDetails = new OrderDetailRepository(_db);
+            OrderHeader = new OrderHeaderRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
         public IItemTypeRepository ItemType { get; private set; }
         public IProductRepository Product { get; private set; }
         public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IOrderDetailRepository OrderDetails { get; private set; }
+        public IOrderHeaderRepository OrderHeader { get; private set; }
 
         public void Dispose()
         {
