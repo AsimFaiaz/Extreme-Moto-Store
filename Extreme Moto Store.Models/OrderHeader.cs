@@ -35,6 +35,7 @@ namespace Extreme_Moto_Store.Models
 
         [Required]
         [NotMapped]
+        [Display(Name = "Pick Up date")]
         public DateTime PickUpDate { get; set; }
 
         public String Status { get; set; }
