@@ -39,6 +39,7 @@
 									</div>
 									<div class="col-9">
 										<input asp-for="orderHeader.PickUpName" class="form-control" />
+										<span asp-validation-for="orderHeader.PickUpName" class="text-danger"></span>
 									</div>
 								</div>
 
@@ -48,6 +49,7 @@
 									</div>
 									<div class="col-9">
 										<input asp-for="orderHeader.PhoneNumber" class="form-control" />
+										<span asp-validation-for="orderHeader.PhoneNumber" class="text-danger"></span>
 									</div>
 								</div>
 
@@ -57,6 +59,7 @@
 									</div>
 									<div class="col-9">
 										<input value="" asp-for="orderHeader.PickUpDate" class="form-control" />
+										<span asp-validation-for="orderHeader.PickUpDate" class="text-danger"></span>
 									</div>
 								</div>
 
@@ -66,6 +69,7 @@
 									</div>
 									<div class="col-9">
 										<input value="" asp-for="orderHeader.PickUpTime" class="form-control" />
+										<span asp-validation-for="orderHeader.PickUpTime" class="text-danger"></span>
 									</div>
 								</div>
 
@@ -120,3 +124,10 @@
 		</div>
 	</div>
 </form>
+
+@*Client Side Validation*@
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

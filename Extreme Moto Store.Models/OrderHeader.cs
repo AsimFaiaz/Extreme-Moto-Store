@@ -44,10 +44,12 @@ namespace Extreme_Moto_Store.Models
 
         public String? TransactionId { get; set; }
 
-        [Display(Name = "Customer Name")]
+		[Required]
+		[Display(Name = "Customer Name")]
         public string PickUpName { get; set; }
 
-        [Display(Name = "Phone Number")]
+		[Required]
+		[Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
 
